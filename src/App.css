@@ -1,0 +1,1113 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+::-webkit-scrollbar {
+	width: 0.5rem;
+	border: 1px solid var(--main-one);
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--main-one);
+	border-radius: 20px;
+}
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	transition: 0s;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+	scroll-behavior: smooth;
+}
+
+body {
+	--color-one: hsl(240, 100%, 95%);
+	--color-two: hsl(240, 100%, 85%);
+	--color-three: hsl(240, 100%, 70%);
+	--color-four: hsl(240, 100%, 60%);
+	--main-one: #0000ff;
+	--text-one: hsl(0, 0%, 20%);
+	--text-two: hsl(0, 0%, 90%);
+}
+
+body.dark {
+	--color-one: hsl(240, 100%, 8%);
+	--color-two: hsl(240, 100%, 20%);
+	--color-three: hsl(240, 100%, 35%);
+	--color-four: hsl(240, 100%, 45%);
+	--main-one: #0000ff;
+	--text-one: hsl(0, 0%, 90%);
+	--text-two: hsl(0, 0%, 20%);
+}
+
+.title {
+	text-align: center;
+}
+
+ul {
+	list-style-type: none;
+}
+a {
+	text-decoration: none;
+}
+textarea {
+	resize: vertical;
+}
+::placeholder {
+	color: var(--text-two);
+	opacity: 0.8;
+}
+.more {
+	background-color: var(--color-four);
+	width: 14ch;
+	border-radius: 2rem;
+	text-align: center;
+	color: white;
+}
+.more:hover {
+	transform: scale(1.03);
+	transition: 0.3s;
+	box-shadow: 1px 1px 3px 3px rgba(0, 0, 0, 0.24);
+}
+li,
+a,
+p,
+h1,
+h2,
+.title::before,
+.title::after {
+	font-family: 'Poppins', sans-serif;
+	color: var(--text-one);
+}
+/* ---------- ANCHOR loader animation --------- */
+
+.loader-wrapper {
+	width: 100%;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: #242f3f;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.loader {
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	position: relative;
+	background-image: url(/src/assets/logo_2.png);
+	background-size: cover;
+	animation: loading 1s linear infinite;
+}
+
+@keyframes loading {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+Tilt {
+	display: none;
+}
+/* ------------ ANCHOR nav here ----------- */
+nav {
+	display: flex;
+	position: fixed;
+	top: 0;
+	align-items: center;
+	justify-content: space-around;
+	width: 100vw;
+	height: 5rem;
+	z-index: 9;
+	font-family: 'Poppins', sans-serif;
+}
+
+nav.sticky {
+	background-color: var(--color-two);
+	height: 3.5rem;
+	position: fixed;
+	transition: 0.5s;
+}
+
+nav.sticky > * {
+	margin: 0rem;
+}
+
+nav > * {
+	margin-top: 1rem;
+}
+
+.navmini > ul {
+	margin-top: 0.1rem;
+}
+
+nav > img {
+	height: calc(100% + 5vh);
+}
+
+nav ul {
+	display: flex;
+	font-size: calc(0.3rem + 0.8vw);
+}
+
+nav ul li {
+	padding: 0.4rem 1.2rem;
+	align-items: center;
+	list-style: none;
+	text-transform: uppercase;
+	height: 2rem;
+	border-radius: 1.5rem;
+}
+
+nav ul li a {
+	text-decoration: none;
+	color: var(--text-one);
+}
+
+nav ul li:hover a {
+	color: var(--color-four);
+}
+
+nav .theme > * {
+	aspect-ratio: 1 / 1;
+	width: 2.5rem;
+	height: 2.5rem;
+	border: none;
+	font-size: 1.3rem;
+	background: var(--text-two);
+	border-radius: 48%;
+	color: var(--text-one);
+	box-shadow: 0px 1px 5px var(--text-one);
+}
+
+nav .theme:hover {
+	transform: scale(1.1);
+}
+
+nav .light {
+	display: none;
+}
+
+nav .dark {
+	display: none;
+}
+
+.navmini {
+	display: flex;
+	justify-content: space-between;
+	width: 56%;
+}
+
+nav .bars {
+	display: none;
+}
+
+nav .bars {
+	padding-top: 5px;
+	margin-right: 5vw;
+	display: none;
+	float: right;
+	cursor: pointer;
+}
+
+nav .bar1,
+nav .bar2,
+nav .bar3 {
+	width: 35px;
+	height: 5px;
+	background-color: var(--text-one);
+	margin: 6px 0;
+	transition: 0.4s;
+}
+
+nav .change .bar1 {
+	transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+nav .change .bar2 {
+	opacity: 0;
+}
+
+nav .change .bar3 {
+	transform: rotate(45deg) translate(-8px, -8px);
+}
+/* ~~~~~~~~~~~ NOTE home here ~~~~~~~~~~~ */
+.home {
+	position: relative;
+	background-color: var(--color-one);
+	width: 100%;
+	min-height: 100vh;
+	max-height: 1000px !important;
+	display: grid;
+	place-items: center;
+}
+
+.home > .flex {
+	display: flex;
+	justify-content: center;
+}
+
+.hello {
+	float: right;
+	padding: 2rem 1.5rem 0rem 0rem;
+}
+
+.hello img {
+	width: clamp(300px, 45vw, 800px);
+}
+
+.intro {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	aspect-ratio: 7 / 6;
+	position: relative;
+	right: 3vw;
+	left: 0.1rem;
+	padding-right: 2rem;
+}
+
+.intro > p {
+	margin: 1.2rem 0rem 0rem 0.2rem;
+}
+
+.intro > .one {
+	font-size: calc(2rem + 1vw);
+	font-weight: 700;
+}
+
+.intro > .two {
+	font-size: calc(0.6rem + 0.6vw);
+	max-width: 47ch;
+	opacity: 0.8;
+	word-break: keep-all;
+}
+
+.intro > .more {
+	margin-bottom: 5rem;
+	padding: 1.1rem 1.2rem;
+	width: 14ch;
+	border-radius: 2rem;
+	text-align: center;
+}
+
+.intro > .more a {
+	color: white;
+	text-decoration: none;
+}
+
+.intro .icons {
+	display: flex;
+	width: 50%;
+	justify-content: space-around;
+}
+
+.intro > .icons > a > img {
+	width: 2rem;
+	aspect-ratio: 1 / 1;
+}
+
+/* ~~~~~~~~~ NOTE works here ~~~~~~~~~ */
+
+.works {
+	width: 100%;
+	min-height: 100vh;
+	padding-top: 3rem;
+	background-color: var(--color-one);
+}
+
+.works > .myintro > .progress,
+.works > .myintro > h1 {
+	padding-top: 2rem;
+}
+
+.works .title {
+	display: grid;
+	place-items: center;
+	padding: 3rem;
+	padding-bottom: 1.5rem;
+}
+
+.works .title > h1 {
+	font-size: calc(2.2rem + 1vw);
+	position: relative;
+}
+
+.works .title::before {
+	content: 'What I done';
+	font-size: calc(0.8rem + 1vw);
+	color: var(--color-three);
+	letter-spacing: 3px;
+	margin: -5px;
+	text-transform: uppercase;
+}
+
+.works .title:after {
+	content: '';
+	width: 90px;
+	height: 5px;
+	border-radius: 3px;
+	background-color: var(--color-three);
+	bottom: 0;
+	left: 50%;
+}
+
+.works > .topics {
+	width: 100%;
+	display: grid;
+	place-items: center;
+}
+
+.works > .topics > ul {
+	width: calc(25vw + 15rem);
+	display: flex;
+	justify-content: space-between;
+}
+
+.works > .topics > ul > li {
+	color: var(--text-one);
+	border-radius: 2px;
+	padding: 1% 2%;
+	font-size: calc(0.8rem + 0.8vw);
+	border-radius: 0.5rem;
+	text-transform: capitalize;
+	transition: 0.3s;
+}
+.works > .topics > ul > li.active {
+	background: var(--color-three);
+	color: white;
+}
+
+.works .wrapper {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.works .cards {
+	display: flex;
+	width: clamp(250px, 95%, 1500px);
+	flex-wrap: wrap;
+	justify-content: flex-start;
+}
+
+.works .card {
+	position: relative;
+	display: none;
+	flex-direction: column;
+	align-items: center;
+	width: 25%;
+	aspect-ratio: 5 / 4;
+	margin: 2.2rem 3%;
+	background: var(--color-two);
+	box-shadow: 3px 3px 5px -1px rgba(0, 0, 0, 0.7);
+	border: 10px solid var(--color-two);
+	border-radius: 20px;
+	overflow: hidden;
+	transition: 0.5s;
+}
+
+.card img {
+	height: 100%;
+	border-radius: 20px;
+	position: absolute;
+	transition: 0.5s;
+}
+
+.card:hover img{
+	transform: scale(1.1);
+}
+.card:hover > .card_back > .card_title {
+	top: 0px;
+	opacity: 1;
+}
+.card:hover > .card_back > .card_text {
+	bottom: -85%;
+	opacity: 1;
+}
+
+.card_back {
+	transition: 0.5s;
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.card_title {
+	display: grid;
+	place-items: center;
+	display: flex;
+	align-items: center;
+	background: var(--color-two);
+	position: absolute;
+	font-size: calc(0.7rem + 0.7vw);
+	width: 100%;
+	height: 15%;
+	top: -50%;
+	padding-left: 1rem;
+	transition: 0.5s;
+}
+
+.card_text {
+	display: flex;
+	align-items: center;
+	background: var(--color-two);
+	position: relative;
+	font-size: calc(0.5rem + 0.5vw);
+	text-align: center;
+	width: 100%;
+	height: 15%;
+	bottom: -100%;
+	transition: 0.5s;
+}
+
+.card_text a{
+	margin-left: 1rem;
+	padding: 1% 3%;
+	border-radius: 10px;
+	border: 1px solid var(--text-one);
+}
+
+/* ~~~~~~~~~ NOTE skill here ~~~~~~~~~ */
+
+.skill {
+	width: 100%;
+	padding-top: 3rem;
+	background-color: var(--color-one);
+}
+
+.skill > .myintro > .progress,
+.skill > .myintro > h1 {
+	padding-top: 2rem;
+}
+
+.skill .title {
+	display: grid;
+	place-items: center;
+	padding: 3rem;
+}
+
+.skill .title > h1 {
+	font-size: calc(2.2rem + 1vw);
+	position: relative;
+}
+
+.skill .title::before {
+	content: 'What I can';
+	font-size: calc(0.8rem + 1vw);
+	color: var(--color-three);
+	letter-spacing: 3px;
+	margin: -5px;
+	text-transform: uppercase;
+}
+
+.skill .title:after {
+	content: '';
+	width: 90px;
+	height: 5px;
+	border-radius: 3px;
+	background-color: var(--color-three);
+	bottom: 0;
+	left: 50%;
+}
+
+.skill .flex {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	padding-bottom: 2rem;
+}
+
+img.skill {
+	aspect-ratio: 10 / 8;
+	width: clamp(300px, 46vw, 800px);
+	float: left;
+	padding-left: 3rem;
+}
+
+.skill .myintro {
+	display: flex;
+	justify-content: center;
+	padding-left: 2rem;
+	position: relative;
+	flex-direction: column;
+}
+
+.skill .myintro > h1 {
+	color: var(--color-four);
+	font-size: 2.5rem;
+}
+
+.myintro > .skillme {
+	font-size: calc(0.8rem + 0.5vw);
+	max-width: 80vw;
+}
+
+.myintro > .progress {
+	display: flex;
+	flex-direction: column;
+	margin-top: 1rem;
+}
+
+.skill .progress > .up {
+	display: flex;
+	justify-content: space-between;
+	font-size: calc(0.8rem + 0.5vw);
+	width: calc(14rem + 20vw);
+}
+
+.progress .bars {
+	height: 0.5rem;
+	max-width: calc(15rem + 20vw);
+	border-radius: 50px;
+	margin-top: 0.2rem;
+	margin-bottom: 1.5rem;
+	background-color: var(--color-one);
+	box-sizing: unset;
+	border: 1px solid var(--text-one);
+}
+
+.skill .progress .skills {
+	text-align: right;
+	height: 100%;
+	box-sizing: unset;
+}
+
+.skill .progress .front {
+	width: 80%;
+	background-color: var(--color-three);
+	border-radius: 50px;
+}
+
+.progress .back {
+	width: 20%;
+	background-color: var(--color-three);
+	border-radius: 50px;
+}
+
+.progress .design {
+	width: 70%;
+	background-color: var(--color-three);
+	border-radius: 50px;
+}
+
+.skill .more {
+	margin-top: 1rem;
+	padding: 1.1rem 1.2rem;
+}
+
+.skillscontain {
+	background-color: var(--color-three);
+	min-height: 700px;
+	display: flex;
+	justify-content: center;
+}
+
+.moreskills {
+	min-height: 500px;
+	width: 100%;
+	max-width: 1400px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-content: space-around;
+}
+
+.skillitems {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	max-width: 320px;
+	min-width: 250px;
+	height: 496px;
+	margin: 2.2rem 3rem;
+	padding: 0.8rem;
+	box-shadow: 6px 8px 15px -1px rgba(0, 0, 0, 0.78);
+	border-radius: 10px;
+	background-color: var(--color-two);
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	transform: perspective(1000px) translateZ(20px);
+}
+
+.skillitems > * {
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	transform: perspective(1000px) translateZ(30px);
+}
+
+.skillitems > h2 {
+	text-align: center;
+	font-size: 2rem;
+	padding-bottom: 0.7rem;
+}
+
+.skillitems > img {
+	width: 80%;
+	align-self: center;
+}
+
+.skillitems > p {
+	max-width: 30ch;
+	text-align: center;
+	margin-bottom: 1rem;
+}
+
+.skilldetails > ul {
+	display: flex;
+	flex-wrap: wrap;
+	align-self: center;
+	padding-bottom: 1rem;
+	padding-left: 0.5rem;
+}
+
+.skilldetails > ul > li {
+	width: 46%;
+	padding-left: 5px;
+}
+
+/* --------- NOTE about me here --------- */
+
+.about {
+	width: 100%;
+	padding-top: 3rem;
+	background-color: var(--color-one);
+}
+
+.about > .title {
+	display: grid;
+	place-items: center;
+	padding: 3rem;
+}
+
+.about .title > h1 {
+	font-size: calc(2.2rem + 1vw);
+	position: relative;
+}
+
+.about .title::before {
+	position: relative;
+	content: 'Who I am';
+	font-size: calc(0.8rem + 1vw);
+	color: var(--color-three);
+	letter-spacing: 3px;
+	margin: -5px;
+	text-transform: uppercase;
+}
+
+.about .title::after {
+	position: relative;
+	content: '';
+	width: 90px;
+	height: 5px;
+	border-radius: 3px;
+	background-color: var(--color-three);
+	bottom: 0;
+}
+
+.about > .flex {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 2rem 0rem;
+	position: relative;
+	justify-content: center;
+}
+
+img.about {
+	position: relative;
+	aspect-ratio: 10 / 8;
+	width: clamp(300px, 46vw, 800px);
+	margin-bottom: 1rem;
+}
+
+.about .aboutme {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	margin-left: 1rem;
+}
+
+.about .aboutme > * {
+	margin-bottom: 1rem;
+}
+
+.about .aboutme > h2 {
+	color: var(--color-four);
+	font-size: 2.5rem;
+}
+
+.about .aboutme p {
+	max-width: 46ch;
+}
+
+.about .more {
+	padding: 1.1rem 1.2rem;
+	border-radius: 2rem;
+	text-align: center;
+	margin-bottom: 4rem;
+}
+
+.about .more a {
+	color: white;
+	text-decoration: none;
+}
+
+/* ------- ANCHOR timeline styles here ------ */
+
+.timeline-section {
+	min-height: 600px;
+	overflow: hidden;
+}
+.timeline {
+	display: flex;
+	flex-direction: column;
+	width: 60vw;
+	margin: 5% auto;
+}
+.timeline_event {
+	background: #fff;
+	margin-bottom: 20px;
+	position: relative;
+	display: flex;
+	margin: 20px 0;
+	border-radius: 8px;
+	box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25), 0 18px 36px -18px rgba(0, 0, 0, 0.3), 0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+}
+.timeline_event_title {
+	font-size: 1.2rem;
+	line-height: 1.4;
+	text-transform: uppercase;
+	font-weight: 600;
+	color: var(--color-three);
+	letter-spacing: 1.5px;
+}
+.timeline_event_content {
+	padding: 20px;
+	background: var(--color-one);
+}
+.timeline_event_date {
+	color: var(--text-two);
+	font-size: 1.5rem;
+	font-weight: 600;
+	white-space: nowrap;
+}
+.timeline_event_icon {
+	border-radius: 8px 0 0 8px;
+	background: var(--color-three);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-basis: 40%;
+	font-size: 2rem;
+	color: var(--color-one);
+	padding: 20px;
+}
+.timeline_event_icon img {
+	position: absolute;
+	top: 50%;
+	left: -65px;
+	width: 100%;
+	transform: translateY(-50%);
+}
+.timeline_event_description {
+	flex-basis: 60%;
+	opacity: 0.7;
+}
+.timeline_event:after {
+	content: '';
+	width: 2px;
+	height: 120%;
+	background: var(--color-three);
+	position: absolute;
+	top: 52%;
+	left: -6.5rem;
+	z-index: 1;
+}
+.timeline_event:before {
+	content: '';
+	width: 9rem;
+	height: 9rem;
+	position: absolute;
+	background: var(--color-one);
+	padding: 1px;
+	border-radius: 100%;
+	left: -11rem;
+	top: 50%;
+	transform: translateY(-50%);
+	border: 2px solid var(--color-three);
+	z-index: 2;
+	background-position: center;
+	background-size: 7rem;
+	background-repeat: no-repeat;
+}
+.timeline_event:nth-child(1)::before {
+	background-image: url(/src/assets/learning.png);
+}
+.timeline_event:nth-child(2)::before {
+	background-image: url(/src/assets/right_direction.png);
+}
+.timeline_event:nth-child(3)::before {
+	background-image: url(/src/assets/solution_mindset.png);
+}
+.timeline_event:nth-child(4)::before {
+	background-image: url(/src/assets/japan.png);
+}
+
+/* --------- NOTE contact me here --------- */
+
+.contact {
+	background: var(--color-one);
+	width: 100%;
+	min-height: calc(100vh - 3rem);
+	display: grid;
+	place-items: center;
+	padding-top: 3rem;
+}
+
+.contact > .flex {
+	position: relative;
+	display: flex;
+	height: 100%;
+}
+
+.contact .title {
+	display: flex;
+	width: 50%;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.contact h1::after {
+	content: '';
+	display: block;
+	position: relative;
+	width: calc(2.2rem + 1vw * 10);
+	height: 5px;
+	border-radius: 3px;
+	background-color: var(--color-three);
+}
+
+.contact .title > h1 {
+	position: relative;
+	text-align: left;
+	padding: 8vw 6vw 0;
+	color: var(--color-three);
+	font-size: calc(2.2rem + 1vw);
+	font-weight: 600;
+}
+.contact .title > img {
+	width: 50%;
+	padding-left: 6vw;
+}
+.contact .title > span {
+	text-align: left;
+	letter-spacing: 0.4vw;
+	padding: 8vh 6vw;
+	font-weight: 500;
+	color: var(--text-one);
+}
+
+.contact .form {
+	width: 100%;
+	height: 100%;
+}
+
+.contact form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 85%;
+	padding: 15% 15% 0%;
+}
+
+.contact form input,
+.contact form textarea {
+	background: none;
+	border: none;
+	outline: none;
+	border-bottom: 2px solid var(--color-one);
+	font-size: 1.2rem;
+	font-family: 'Poppins', sans-serif;
+	line-height: 1.5;
+	padding: 2% 5%;
+	margin: 0vh 0vh 6vh;
+	color: var(--text-two);
+}
+
+.contact form button {
+	height: 3.5rem;
+	width: 50%;
+	font-size: 1.2rem;
+	color: var(--color-one);
+	margin: 0 auto;
+	background: none;
+	outline: none;
+	border: 3px solid var(--color-one);
+	border-radius: 1rem;
+	transition: 0.3s;
+}
+
+.contact form button:hover {
+	background: var(--color-one);
+	color: var(--text-one);
+}
+
+/* ------- ANCHOR responsive styles here ------ */
+
+@media (max-width: 824px) {
+	.home {
+		padding-top: 5rem;
+	}
+
+	.home .flex {
+		flex-direction: column;
+		justify-content: space-evenly;
+	}
+
+	nav {
+		justify-content: space-between;
+	}
+
+	nav img {
+		padding-left: 2rem;
+	}
+
+	nav .navmini {
+		display: none;
+		border-bottom: 2px solid var(--text-two);
+		position: fixed;
+		top: 3.4rem;
+		width: 100%;
+		justify-content: space-around;
+		align-items: center;
+		flex-direction: column;
+		background: var(--color-one);
+		transition: 0.3s;
+	}
+
+	nav .navmini ul {
+		font-size: 1rem;
+		flex-direction: column;
+		text-align: center;
+	}
+
+	nav .navmini ul > * {
+		height: 3rem;
+	}
+
+	nav .navmini .theme {
+		height: 4rem;
+	}
+
+	nav .navmini.active {
+		display: flex;
+	}
+
+	nav .navmini.active.stickymini {
+		background-color: var(--color-two);
+	}
+
+	nav .navmini ~ img {
+		display: none;
+	}
+
+	nav .bars {
+		display: block;
+		margin-right: 2rem;
+		padding: 0.2rem 0.4rem;
+		background-color: var(--color-two);
+		color: var(--text-one);
+	}
+
+	.intro {
+		padding-right: 0;
+		justify-content: start;
+		aspect-ratio: initial;
+	}
+
+	.intro .two {
+		max-width: 95vw;
+	}
+
+	.intro > .more {
+		margin-bottom: 2rem;
+		padding: 0.8rem;
+		width: 12ch;
+		font-size: 0.8rem;
+	}
+
+	.works .card {
+		width: 80%;
+	}
+
+	.hello {
+		align-self: center;
+		padding: 0;
+		padding-bottom: 1.8rem;
+	}
+
+	.skill .title {
+		padding: 1.5rem;
+	}
+
+	img.skill {
+		padding-left: 0;
+	}
+
+	.skill .myintro {
+		padding-left: 0;
+	}
+
+	.skillitems {
+		margin: 5vw;
+	}
+
+	.myintro > .skillme {
+		max-width: 100vh;
+	}
+
+	.timeline_event::before,
+	.timeline_event::after {
+		display: none;
+	}
+
+	.timeline_event {
+		flex-direction: column;
+	}
+	.timeline_event_icon {
+		border-radius: 4px 4px 0 0;
+	}
+
+	.contact > .flex {
+		flex-direction: column;
+	}
+	.contact .title {
+		width: 100%;
+	}
+	.contact .title > img {
+		display: none;
+	}
+	.contact .title > h1 {
+		padding-bottom: 0;
+	}
+	.contact .title > span {
+		padding: 2vh;
+	}
+	.contact form {
+		padding: 0 15%;
+		height: 100%;
+	}
+}
