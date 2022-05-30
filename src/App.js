@@ -10,11 +10,11 @@ import { faAdjust } from '@fortawesome/free-solid-svg-icons'
 import VanillaTilt from 'vanilla-tilt'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
-import TextField from '@mui/material/TextField'
 
 export default function App() {
 	const [isActive, setActive] = useState(false)
 	const location = useLocation()
+	// const [isDark, setDark] = useState(false)
 
 	//functions
 	const toggleClass = () => {
@@ -24,9 +24,11 @@ export default function App() {
 			$('body').toggleClass('dark')
 			if ($('body').hasClass('dark')) {
 				localStorage.setItem('theme', 'dark')
+				//setDark(true)
 			}
 			if (!$('body').hasClass('dark')) {
 				localStorage.setItem('theme', '')
+				//setDark(false)
 			}
 		},
 		Tilt = props => {
@@ -53,11 +55,11 @@ export default function App() {
 
 	//variables
 	const navItems = [
-			[1, '/', 'Home'],
-			[2, '/works', 'Works'],
-			[3, '/skills', 'Skills'],
-			[4, '/about', 'About'],
-			[5, '/contact', 'Contact'],
+			[1, '#', 'Home'],
+			[2, '#work', 'Works'],
+			[3, '#skill', 'Skills'],
+			[4, '#about', 'About'],
+			[5, '#contact', 'Contact'],
 		],
 		skillitems = [
 			[1, images.devices, 'Front End', 'Front End is what the user see on a website and I make it pretty, responsive and interactive.', ['1. HTML', '2. CSS', '3. Bootstrap 5', '4. JavaScript', '5. jquery', '6. React']],
@@ -118,7 +120,7 @@ export default function App() {
 								{navItems.map(item => {
 									return (
 										<li key={item[0]}>
-											<Link to={item[1]}>{item[2]}</Link>
+											<a href={item[1]}>{item[2]}</a>
 										</li>
 									)
 								})}
@@ -326,7 +328,6 @@ export default function App() {
 						<div className='form'>
 							<form action='https://formsubmit.co/thawyezaw15@gmail.com' method='POST'>
 								<datalist id='name_text'></datalist>
-								<TextField id='outlined-basic' label='Outlined' variant='outlined' />
 								<input type='text' placeholder='Name' name='His_or_her_name' list='name_text' required></input>
 								<input type='text' placeholder='Email' name='Email_gmail' list='name_text' id='email' required></input>
 								<input type='text' placeholder='Who are you?' name='type' list='who' required></input>
@@ -355,18 +356,13 @@ export default function App() {
 					</span>
 				</div>
 			)
-		},
-		NavAndLoader = () => {
-			return (
-				<>
-					<Nav />
-					<Loader />
-				</>
-			)
 		}
 
 	//useEffect
-	$('.loader-wrapper').fadeOut('slow')
+	useEffect(() => {
+		$('.loader-wrapper').fadeOut('slow')
+	}, [isActive])
+
 	useEffect(() => {
 		$(window).scroll(function () {
 			// sticky navbar on scroll script
@@ -387,20 +383,18 @@ export default function App() {
 
 		$('.loader-wrapper').fadeOut('slow')
 
-		$('.card').css('display', 'flex')
-
 		AOS.init()
 	}, [location])
 
 	return (
-		<Routes>
-			<Route path='/' element={<NavAndLoader />}>
-				<Route index element={<Home />} />
-				<Route path='/works' element={<Work />} />
-				<Route path='/skills' element={<Skill />} />
-				<Route path='/about' element={<About />} />
-				<Route path='/contact' element={<Contact />} />
-			</Route>
-		</Routes>
+		<>
+			<Loader />
+			<Nav />
+			<Home />
+			<Work />
+			<Skill />
+			<About />
+			<Contact />
+		</>
 	)
 }

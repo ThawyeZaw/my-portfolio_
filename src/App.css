@@ -46,6 +46,10 @@ body.dark {
 	--text-two: hsl(0, 0%, 20%);
 }
 
+section{
+	overflow: hidden;
+}
+
 .title {
 	text-align: center;
 }
@@ -189,7 +193,7 @@ nav .theme > * {
 	background: var(--text-two);
 	border-radius: 48%;
 	color: var(--text-one);
-	box-shadow: 0px 1px 5px var(--text-one);
+	box-shadow: 0px 1px 3px var(--text-one);
 }
 
 nav .theme:hover {
@@ -405,7 +409,7 @@ nav .change .bar3 {
 
 .works .card {
 	position: relative;
-	display: none;
+	display: flex;
 	flex-direction: column;
 	align-items: center;
 	width: 25%;
