@@ -66,7 +66,7 @@ function isYou(boo) {
 
 function handleClick() {
 	if (!(this.classList.contains('x') || this.classList.contains('o'))) {
-		item = this
+		var item = this
 		item.disabled = true
 		item.innerHTML = isYou(true)
 		item.classList.add(isYou(true))
