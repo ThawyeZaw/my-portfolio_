@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Easy Maths</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <div class="container">
+      <div class="nav">
+         <div class="title">Easy Maths</div>
+         <div class="links">
+            <li><a href="../index.html">Add</a></li>
+            <li><a href="subtract.html">Subtract</a></li>
+            <li><a href="multiply.html">Multiply</a></li>
+            <li><a href="divide.html">Divide</a></li>
+         </div>
+      </div>
+      <div class="wrapper">
+         <div class="sum">
+            <div class="one" id="one">4</div>
+            <p>&divide;</p>
+            <div class="two" id="two">3</div>
+            <p>=</p>
+            <input type="text" name="ans" id="ans" placeholder="ans" maxlength="3" autofocus>
+         </div>
+         <div class="numpad">
+            <button class="num" onclick="writeNum(1)">1</button>
+            <button class="num" onclick="writeNum(2)">2</button>
+            <button class="num" onclick="writeNum(3)">3</button>
+            <button class="num" onclick="writeNum(4)">4</button>
+            <button class="num" onclick="writeNum(5)">5</button>
+            <button class="num" onclick="writeNum(6)">6</button>
+            <button class="num" onclick="writeNum(7)">7</button>
+            <button class="num" onclick="writeNum(8)">8</button>
+            <button class="num" onclick="writeNum(9)">9</button>
+            <button class="num s" onclick="document.getElementById('ans').value = '';">Del</button>
+            <button class="num" onclick="writeNum(0)">0</button>
+            <button class="num s" onclick="answer();Generate();">Go</button>
+         </div>
+      </div>
+   </div>
+   <script src="../src/divide.js"></script>
+</body>
+</html>

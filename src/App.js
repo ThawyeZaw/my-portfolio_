@@ -13,8 +13,7 @@ import 'aos/dist/aos.css'
 
 export default function App() {
 	const [isActive, setActive] = useState(false)
-	const location = useLocation()
-	// const [isDark, setDark] = useState(false)
+	//const location = useLocation()
 
 	//functions
 	const toggleClass = () => {
@@ -24,11 +23,9 @@ export default function App() {
 			$('body').toggleClass('dark')
 			if ($('body').hasClass('dark')) {
 				localStorage.setItem('theme', 'dark')
-				//setDark(true)
 			}
 			if (!$('body').hasClass('dark')) {
 				localStorage.setItem('theme', '')
-				//setDark(false)
 			}
 		},
 		Tilt = props => {
@@ -321,15 +318,14 @@ export default function App() {
 				<section className='contact' id='contact'>
 					<div className='flex'>
 						<div className='title'>
-							<h1>Contact me</h1>
+							<h1>Contact <span>me</span></h1>
 							<Img link={images.email} altText='Loading' />
 							<span>CONTACT EMAIL : thawyezaw15@gmail.com</span>
 						</div>
 						<div className='form'>
-							<form action='https://formsubmit.co/thawyezaw15@gmail.com' method='POST'>
-								<datalist id='name_text'></datalist>
-								<input type='text' placeholder='Name' name='His_or_her_name' list='name_text' required></input>
-								<input type='text' placeholder='Email' name='Email_gmail' list='name_text' id='email' required></input>
+							<form action={''/*'https://formsubmit.co/thawyezaw15@gmail.com'*/} method='POST'>
+							<input type='text' placeholder='Your Name' name='His/her_name' required></input>
+								<input type='email' placeholder='Your Email' name='Email_' required></input>
 								<input type='text' placeholder='Who are you?' name='type' list='who' required></input>
 								<datalist id='who'>
 									<option>Developer</option>
@@ -339,7 +335,7 @@ export default function App() {
 								</datalist>
 								<textarea placeholder='Text message to Thaw ye Zaw' rows='2' required name='message'></textarea>
 								<button type='submit' value='submit'>
-									Submit
+									Send Message
 								</button>
 								<input type='hidden' name='_next' value='https://thawyezaw.netlify.app/#contact'></input>
 							</form>
@@ -384,7 +380,7 @@ export default function App() {
 		$('.loader-wrapper').fadeOut('slow')
 
 		AOS.init()
-	}, [location])
+	}, [])
 
 	return (
 		<>
